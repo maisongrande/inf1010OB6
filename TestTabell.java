@@ -33,6 +33,11 @@ class TestTabell {
 			      s,
 			      t1.add(i++, s)==true?"OK":"FAIL");
 	}	
+
+	System.out.println("\nTester get:\n");
+
+	for (i = 0; i < args.length; i++)
+	    System.out.printf("get(%d) = %s\n", i, t1.get(i));
     }
 
 }
