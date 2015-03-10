@@ -1,7 +1,8 @@
-public interface AbstraktSortertEnkelListe<T implements Comperable & Lik>  {
+import java.util.*;
+public interface AbstraktSortertEnkelListe<T extends Comparable & Lik> {
 
     boolean add(T obj, String s);
     T get(String s);
-    Iterator<T> Iterator();
+    Iterator<T> iterator();
 
     }
