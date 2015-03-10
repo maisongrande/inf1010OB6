@@ -1,5 +1,5 @@
 class TestTabell {
-    /* Helt basic test av add  og iterator-metoden for Tabell-klassen. */
+    /* Helt basic test av add, get og iterator-metoden i Tabell-klassen. */
     public static void main(String[] args) {
 
 	if (args.length == 0) {
@@ -9,7 +9,6 @@ class TestTabell {
 	
 	int i = 0;
 	Tabell<String> t1 = new Tabell<String>(args.length); 
-
 
 	System.out.println("Tester add() og iterator\n");	
 	System.out.println("Legger i array med add():");
@@ -39,5 +38,4 @@ class TestTabell {
 	for (i = 0; i < args.length; i++)
 	    System.out.printf("get(%d) = %s\n", i, t1.get(i));
     }
-
 }

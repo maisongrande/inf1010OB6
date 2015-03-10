@@ -33,7 +33,7 @@ public class SortertEnkelListe<T extends Comparable & Lik>
     public T get(String s) {
 	Node newNode;
 
-	for (newNode = head; newNode.id.equals(s); newNode = newNode.next);
+	for (newNode = head; !newNode.id.equals(s); newNode = newNode.next);
 	
 	return newNode == null?null:newNode.obj;	
     }
