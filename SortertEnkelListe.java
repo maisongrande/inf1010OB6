@@ -68,7 +68,9 @@ public class SortertEnkelListe<T extends Comparable & Lik>
 	    return nextPtr.obj;
 	}
 
-	public void remove() {}
+	public void remove() {
+	    throw new UnsupportedOperationException();
+	}
     }
 }
 

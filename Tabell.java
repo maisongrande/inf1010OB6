@@ -39,6 +39,8 @@ public class Tabell<T> implements AbstraktTabell<T>, Iterable<T>  {
 	    return array[pos++];
 	}
 
-	public void remove() {}
+	public void remove() {
+	    throw new UnsupportedOperationException();	    
+	}
     }
 }
