@@ -1,5 +1,5 @@
 import java.util.*;
-public class EnkelReseptListe implements Iterable {
+public class EnkelReseptListe implements Iterable<Resept> {
     Node head, tail = null;
 
     class Node {
@@ -16,7 +16,7 @@ public class EnkelReseptListe implements Iterable {
         }
     }
 
-    class ERLIterator implements Iterator {
+    class ERLIterator implements Iterator<Resept> {
         private Node node = head;
 
         public boolean hasNext() {
@@ -54,7 +54,7 @@ public class EnkelReseptListe implements Iterable {
         throw new NoSuchElementException();
     }
 
-    public Iterator iterator(){
+    public Iterator<Resept> iterator(){
         return new ERLIterator();
     }
 }

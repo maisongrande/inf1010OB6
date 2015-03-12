@@ -1,8 +1,8 @@
 import java.util.NoSuchElementException;
-public class TestEnkelReseptListe {
+public class TestEldsteForstReseptListe {
     public static void main(String[] args){
 
-        EnkelReseptListe erl = new EnkelReseptListe();
+        EldsteForstReseptListe erl = new EldsteForstReseptListe();
 
         Legemiddel legemiddel = new LegemiddelMiksturA("Ritalin", 66, 1,2,3);
         Lege lege = new Lege("Doktor Dyregod");
@@ -13,11 +13,11 @@ public class TestEnkelReseptListe {
         erl.add(new BlaResept(legemiddel, lege, person, 3));
         Resept r = new BlaResept(legemiddel, lege, person, 1);
 
-        test("Løpenummer på resept funker", (r.nummer == 4), true);
+        test("Løpenummer på resept funker", (r.nummer == 4));
 
         r = new BlaResept(legemiddel, lege, person, 1);
         erl.add(r);
-        test("Legge og hente ut den samme resepten", (erl.get(r.nummer).nummer == r.nummer), true);
+        test("Legge og hente ut den samme resepten", (erl.get(r.nummer).nummer == r.nummer));
 
         Boolean suksess = false;
         try {
@@ -28,30 +28,21 @@ public class TestEnkelReseptListe {
         test("Resept som ikke finnes kaster exception", suksess);
 
 
-        // EldsteForstReseptListe
-        // teller opppover
-        // YngsteForstReseptListe
-        //teller nedover
+        erl = new EldsteForstReseptListe();
+        Resept forste = new BlaResept(legemiddel, lege, person, 1);
+        erl.add(forste);
+        for (int i=1;i<11;i++) {
+            erl.add(new BlaResept(legemiddel, lege, person, 1));
+        }
+        int nummer=forste.nummer;
+        for (Resept resept : erl){
+            test("Resept " + nummer + " kommer på rett plass", (resept.nummer == nummer++));
+        }
 
-        // Tabell
-        // add
-        // // add utenfor
-        // get
-        // get utenfor
-        // get ikkeeksisterende
-        // itererere
-
-        // SortertEnkelListe
-        // add
-        // add noe som ikke er comparable
-        // get
-        // get noe som ikke finnes
-        // itererer
-        // sjekk rekkefølge
     }
-    static void test(String s, Boolean value, Boolean expect){
+    static void test(String s, Boolean value){
         System.out.print(s + ": ");
-        if (value == expect){
+        if (value){
             System.out.println("OK");
             return;
         }
