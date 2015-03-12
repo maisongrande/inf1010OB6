@@ -2,7 +2,7 @@ import java.util.*;
 public class EnkelReseptListe implements Iterable {
     Node head, tail = null;
 
-    private class Node {
+    class Node {
         Node next;
         Resept resept;
 
@@ -16,7 +16,7 @@ public class EnkelReseptListe implements Iterable {
         }
     }
 
-    private class ERLIterator implements Iterator {
+    class ERLIterator implements Iterator {
         private Node node = head;
 
         public boolean hasNext() {
