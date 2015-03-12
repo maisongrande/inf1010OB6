@@ -51,7 +51,7 @@ public class EnkelReseptListe implements Iterable {
             }
             n = n.next;
         }
-        return null;
+        throw NoSuchElementException;
     }
 
     public Iterator iterator(){
