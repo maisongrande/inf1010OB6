@@ -8,7 +8,5 @@
  */
 
 interface Lik {
-
-    boolean samme(String navn);
-
+    public Boolean samme(Object l);
 }

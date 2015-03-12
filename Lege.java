@@ -1,13 +1,20 @@
 public class Lege implements Lik, Comparable {
     private String navn;
 
-    public Boolean samme(Lege l) {
-        if(l.getNavn().equals(navn)){return true;}
+    public Boolean samme(Object lege) {
+        if (lege instanceof Lege) {
+            Lege l = (Lege)lege;
+            if(l.getNavn().equals(navn)){return true;}
+        }
         return false;
     };
 
-    public int compareTo(Lege l) {
-        return l.getNavn.compareTo(navn);
+    public int compareTo(Object lege) {
+        if (lege instanceof Lege) {
+            Lege l = (Lege)lege;
+            return l.getNavn().compareTo(navn);
+        }
+        return -1;
     }
 
     public String getNavn(){

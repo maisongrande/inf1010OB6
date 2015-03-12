@@ -59,18 +59,16 @@ public class SortertEnkelListe<T extends Comparable & Lik>
     private class EnkelListeIterator implements Iterator<T> {
         private Node nextPtr = head;
 	
-        public boolean hasNext() {
-            return nextPtr.next != null ;
-        }
-
-        public T next() {
-            nextPtr = nextPtr.next;
-            return nextPtr.obj;
-        }
-
-	public void remove() {
-	    throw new UnsupportedOperationException();
+	public boolean hasNext() {
+	    return nextPtr.next != null ;
 	}
+
+	public T next() {
+	    nextPtr = nextPtr.next;
+	    return nextPtr.obj;
+	}
+
+	public void remove() {}
     }
 }
 
