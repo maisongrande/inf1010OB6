@@ -1,9 +1,18 @@
 import java.util.*;
 
 public class SortertEnkelListe<T extends Comparable & Lik>
-    implements Iterable {
+    implements Iterable<T> {
 
     Node head, tail = null;
+
+    public void printNodes() {
+	Node tmp = head;
+
+	while (tmp != null) {
+	    System.out.println(tmp.obj);
+	    tmp = tmp.next;
+	}
+    }
     
     public boolean add(T obj, String s) {
         Node newNode = new Node(obj,s);
@@ -18,6 +27,7 @@ public class SortertEnkelListe<T extends Comparable & Lik>
 	    if (newNode.obj.compareTo(tmp.obj) < 0) {
 
                 if (tmp == head) {
+		    newNode.next = head;
                     head = newNode;
 
 		} else {
