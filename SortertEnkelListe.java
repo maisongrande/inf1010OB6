@@ -15,26 +15,29 @@ public class SortertEnkelListe<T extends Comparable & Lik>
         }
 
         while (tmp != null) {
+	    if (newNode.obj.compareTo(tmp.obj) < 0) {
 
-            if (newNode.obj.compareTo(tmp.obj) < 0) {
-                newNode.next = tmp;
-                if (tmp == head) 
-                    head = newNode;	
-                return true;
-            }	    
-            tmp = tmp.next; 
+                if (tmp == head) {
+                    head = newNode;
+
+		} else {
+		    newNode.next = tmp;
+		    tmp.next = newNode;
+       		}
+	    return true;
+	    }	    
+	    tmp = tmp.next; 
         }
+        tail.next = newNode;
         tail = newNode;
-        tmp.next = newNode;
-
         return true;
     }
 
+    
     public T get(String s) {
         Node newNode;
 
         for (newNode = head; !newNode.id.equals(s); newNode = newNode.next);
-	
         return newNode == null?null:newNode.obj;	
     }
 
