@@ -5,6 +5,8 @@ public class SortertEnkelListe<T extends Comparable & Lik>
 
     Node head, tail = null;
 
+
+    /* HJELPE-METODE MIDLERTIDIG */
     public void printNodes() {
 	Node tmp = head;
 
@@ -13,10 +15,12 @@ public class SortertEnkelListe<T extends Comparable & Lik>
 	    tmp = tmp.next;
 	}
     }
+    /*============================*/
     
     public boolean add(T obj, String s) {
         Node newNode = new Node(obj,s);
         Node tmp = head;
+	Node prev = null;
 	
         if (head == null) {
             head = tail = newNode;
@@ -25,30 +29,35 @@ public class SortertEnkelListe<T extends Comparable & Lik>
 
         while (tmp != null) {
 	    if (newNode.obj.compareTo(tmp.obj) < 0) {
-
                 if (tmp == head) {
-		    newNode.next = head;
-                    head = newNode;
-
+		    newNode.next = tmp;
+		    head = newNode;
 		} else {
 		    newNode.next = tmp;
-		    tmp.next = newNode;
+		    prev.next = newNode;
        		}
-	    return true;
+		return true;
 	    }	    
-	    tmp = tmp.next; 
+	    prev = tmp;
+	    tmp = tmp.next;   
         }
-        tail.next = newNode;
+
+	tail.next = newNode;
         tail = newNode;
+
         return true;
     }
 
     
     public T get(String s) {
-        Node newNode;
+        Node tmp;
 
-        for (newNode = head; !newNode.id.equals(s); newNode = newNode.next);
-        return newNode == null?null:newNode.obj;	
+        for (tmp = head; tmp != null; tmp = tmp.next) {
+	    if((tmp.id).equals(s))
+		return tmp.obj;
+	}
+	throw new NoSuchElementException();
+	
     }
 
 
