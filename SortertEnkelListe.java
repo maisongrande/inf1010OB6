@@ -73,15 +73,18 @@ public class SortertEnkelListe<T extends Comparable & Lik>
         private Node nextPtr = head;
 	
 	public boolean hasNext() {
-	    return nextPtr.next != null ;
+	    return nextPtr != null ;
 	}
 
 	public T next() {
+	    Node retObj = nextPtr;
 	    nextPtr = nextPtr.next;
-	    return nextPtr.obj;
+	    return retObj.obj;
 	}
 
-	public void remove() {}
+	public void remove() {
+	    throw new UnsupportedOperationException("Not implemented.");
+	}
     }
 }
 
