@@ -17,7 +17,7 @@ public class TestYngsteForstReseptListe {
 
         r = new BlaResept(legemiddel, lege, person, 1);
         erl.add(r);
-        test("Legge og hente ut den samme resepten", (erl.get(r.nummer).nummer == r.nummer));
+        test("Legge til og hente ut den samme resepten", (erl.get(r.nummer).nummer == r.nummer));
 
         Boolean suksess = false;
         try {
@@ -36,7 +36,7 @@ public class TestYngsteForstReseptListe {
         erl.add(siste);
         int nummer=siste.nummer;
         for (Resept resept : erl){
-            test("Resept " + nummer + " kommer på rett plass", (resept.nummer == nummer--));
+            test("Resept " + nummer + " kommer på rett plass under iterering", (resept.nummer == nummer--));
         }
 
     }
