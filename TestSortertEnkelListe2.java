@@ -5,7 +5,7 @@ class TestSortertEnkelListe2 {
 
         Lege l = new Lege("Doktor Dyregod");
         sel.add(l, "fjas");
-        test("Legge til og hente lege", (sel.get("fjas").samme(l)));
+        test("Legge til og hente samme lege", (sel.get("fjas").samme(l)));
 
         Boolean test = false;
         try {
@@ -16,12 +16,15 @@ class TestSortertEnkelListe2 {
         test("Hente noe som ikke finnes kaster exception", test);
 
 
-        Lege[] leger = {new Lege("Dyregod"), new Lege("Alban"), new Lege("House"), new Lege("Dre")};
+        Lege[] leger = {new Lege("Zoidberg"), new Lege("Dyregod"), new Lege("Alban"), new Lege("House"), new Lege("Dre")};
 
         sel = new SortertEnkelListe<Lege>();
+        System.out.print("Legge til hulter i bulter: ");
         for (Lege lege : leger ){
+            System.out.print(lege + " ");
             sel.add(lege, "");
         }
+        System.out.println();
 
         System.out.println("Sjekke sortering: ");
         Arrays.sort(leger);

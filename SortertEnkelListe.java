@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SortertEnkelListe<T extends Comparable> //& Lik>
+public class SortertEnkelListe<T extends Comparable & Lik>
     implements Iterable<T> {
 
     Node head, tail = null;
