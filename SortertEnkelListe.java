@@ -24,7 +24,7 @@ public class SortertEnkelListe<T extends Comparable> //& Lik>
             return true;
         }
 
-        Node pos = tail;
+        Node pos = head;
         Node tmp = head;
         while (tmp != null) {
             if (tmp.obj.compareTo(newNode.obj) <= 0) {
