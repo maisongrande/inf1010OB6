@@ -12,12 +12,15 @@ public class Lege implements Lik, Comparable {
     public int compareTo(Object lege) {
         if (lege instanceof Lege) {
             Lege l = (Lege)lege;
-            return l.getNavn().compareTo(navn);
+            return navn.compareToIgnoreCase(l.getNavn());
         }
         return -1;
     }
 
     public String getNavn(){
+        return navn;
+    }
+    public String toString(){
         return navn;
     }
     public Lege(String navn){

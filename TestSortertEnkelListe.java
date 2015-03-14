@@ -3,8 +3,8 @@ class TestSortertEnkelListe
 {
     public static void main(String[] args) {
 	SortertEnkelListe<Lege> sel = new SortertEnkelListe<Lege>();
-	String[] dr = {"Dr. Dre", "Dr. Proktor", "Dr. Alban", "Dr. House"};
-	    
+	String[] dr = {"Dre", "Proktor", "Alban", "House"};
+
 	Lege l1 = new Lege(dr[0]);
 	Lege l2 = new Lege(dr[1]);
       	Lege l3 = new Lege(dr[2]);
