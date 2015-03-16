@@ -1,57 +1,47 @@
-import java.util.NoSuchElementException;
-class TestSortertEnkelListe
-{
+import java.util.*;
+class TestSortertEnkelListe {
     public static void main(String[] args) {
-	SortertEnkelListe<Lege> sel = new SortertEnkelListe<Lege>();
-	String[] dr = {"Dre", "Proktor", "Alban", "House"};
+        SortertEnkelListe<Lege> sel = new SortertEnkelListe<Lege>();
 
-	Lege l1 = new Lege(dr[0]);
-	Lege l2 = new Lege(dr[1]);
-      	Lege l3 = new Lege(dr[2]);
-	Lege l4 = new Lege(dr[3]);
+        Lege l = new Lege("Doktor Dyregod");
+        sel.add(l, "fjas");
+        test("Legge til og hente samme lege", (sel.get("fjas").samme(l)));
 
-	System.out.println("* Tester add(Lege) *");
-	if (sel.add(l1,"1") && sel.add(l2,"2") && sel.add(l3,"3")
-	    && sel.add(l4,"4"))
-	    System.out.println("Insertion -> OK");
-	else
-	    System.out.println("Insertion -> FAILED");
+        Boolean test = false;
+        try {
+            sel.get("tut");
+        } catch (Exception e) {
+            test = true;
+        }
+        test("Hente noe som ikke finnes kaster exception", test);
 
-	boolean suksess = true;
-        boolean suksess2 = true;
-	String s1 = "";
-	String s2 = "";
-	String t = "";	
 
-	System.out.printf("\nTester get() paa alle insatte + 1\n");
-	for (int i=1; i < dr.length + 2; i++) {
-	    try {
-		s1 = sel.get(Integer.toString(i)).getNavn();
-		s2 = dr[i-1];
-		if (s1 == s2)
-		    suksess2 = true;
-		else
-		    suksess2 = false;
-	    } catch (NoSuchElementException e) {suksess = false;}
+        Lege[] leger = {new Lege("Zoidberg"), new Lege("Dyregod"), new Lege("Alban"), new Lege("House"), new Lege("Dre")};
 
-	    if (i > 4)
-		test("Test av Lege som ikke finnes m/get(). Skal feile",
-		     suksess);
-	    else {
-		test("Test av Lege som finnes m/get()", suksess);
-		t = String.format("%s == %s", s1, s2);		
-		test(t, suksess2);
-	    }
-	}
+        sel = new SortertEnkelListe<Lege>();
+        System.out.print("Legge til hulter i bulter: ");
+        for (Lege lege : leger ){
+            System.out.print(lege + " ");
+            sel.add(lege, "");
+        }
+        System.out.println();
 
-	System.out.printf("\nTester iterator over alle insatte\n");
-	for(Lege lege: sel)
-	    System.out.println(lege.getNavn());
-	
+        System.out.println("Sjekke sortering: ");
+        Arrays.sort(leger);
+        int n=0;
+        for (Lege lege : sel) {
+            test(lege + " (" + leger[n] + ")", (lege == leger[n++]));
+        }
+
+    }
+    static void test(String s, Boolean value){
+        System.out.print(s + ": ");
+        if (value){
+            System.out.println("OK");
+            return;
+        }
+        System.out.println("FAIL");
     }
 
-    static void test(String s, Boolean value) {
-	System.out.printf("%s : %s\n", s, value?"OK":"FAIL");
-    }
 }
 

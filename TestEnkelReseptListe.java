@@ -25,7 +25,7 @@ public class TestEnkelReseptListe {
         } catch (NoSuchElementException e) {
             suksess = true;
         }
-        test("Resept som ikke finnes kaster exception", suksess);
+        test("Resept som ikke finnes kaster exception", suksess, true);
 
 
         // EldsteForstReseptListe
