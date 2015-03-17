@@ -1,6 +1,6 @@
 import java.util.*;
 /**
- * Interface AbstraktTabell inneholder metode-sign
+ * Interface AbstraktTabell inneholder metode-signatur
  * for metodene som inngaar i klasser som implementerer
  * AbstraktTabell.
  */
