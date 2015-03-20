@@ -1,10 +1,10 @@
 public abstract class Resept {
     public int nummer;
-    private Legemiddel legemiddel;
-    private Lege lege;
-    private Person pasient;
-    private int reit;
-    private static int sist_nummer=0;
+    public Legemiddel legemiddel;
+    public Lege lege;
+    public Person pasient;
+    public int reit;
+    public static int sist_nummer=0;
     public Resept(Legemiddel legemiddel, Lege lege, Person pasient, int reit){
         this.legemiddel = legemiddel;
         this.lege = lege;

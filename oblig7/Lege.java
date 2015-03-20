@@ -1,6 +1,6 @@
 public class Lege implements Lik, Comparable {
     private String navn;
-    public int avtaleNummer;
+    public int avtaleNummer = 0;
 
     public Boolean samme(Object lege) {
         if (lege instanceof Lege) {

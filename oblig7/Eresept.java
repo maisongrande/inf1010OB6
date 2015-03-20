@@ -150,7 +150,7 @@ class Eresept {
             s+= String.format("%d, %s, %d, %s, %s\n", p.loepeNr, p.navn, p.fnummer, p.adresse, p.postnummer);
         }
 
-        s+="# Legemidler (nr, navn, form, type, pris, antall, virkestoff [, styrke])";
+        s+="# Legemidler (nr, navn, form, type, pris, antall, virkestoff [, styrke])\n";
         for (Legemiddel m : legemidler) {
             s+=m.getNummer();
             s+=", ";
@@ -184,6 +184,35 @@ class Eresept {
                 s+=", ";
                 s+=((LegemiddelB)m).getVanedannendehet();
             }
+            s+="\n";
+        }
+
+        s+="# Leger (navn, avtalenr / 0 hvis ingen avtale)\n";
+
+        for (Lege l : leger ) {
+            s+=l.getNavn();
+            s+=", ";
+            s+=l.avtaleNummer;
+            s+="\n";
+        }
+
+        s+="# Resepter (nr, hvit/blå, persNummer, legeNavn, legemiddelNummer, reit)\n";
+        for (Resept r : resepter){
+            s+=r.nummer;
+            s+=", ";
+            if (r instanceof BlaResept) {
+                s+="blå";
+            } else if (r instanceof HvitResept) {
+                s+="hvit";
+            }
+            s+=", ";
+            s+=r.pasient.loepeNr;
+            s+=", ";
+            s+=r.lege.getNavn();
+            s+=", ";
+            s+=r.legemiddel.getNummer();
+            s+=", ";
+            s+=r.reit;
             s+="\n";
         }
         return s;

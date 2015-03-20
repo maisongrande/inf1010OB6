@@ -73,8 +73,8 @@ public class Tabell<T> implements AbstraktTabell<T>, Iterable<T>  {
          */
         public boolean hasNext() {
             int p = pos;
-            while(p++ < array.length-1) {
-                if (array[p] != null) { return true; }
+            while(p < array.length-1) {
+                if (array[p++] != null) { return true; }
             }
             return false;
         }
@@ -85,8 +85,8 @@ public class Tabell<T> implements AbstraktTabell<T>, Iterable<T>  {
          * @return objektet i neste posisjon.
          */
         public T next() {
-            while (pos++ < array.length-1){
-                if (array[pos] != null) { return array[pos]; }
+            while (pos < array.length){
+                if (array[pos] != null) { return array[pos++]; }
             }
             return null;
         }
