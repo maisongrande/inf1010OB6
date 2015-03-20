@@ -3,7 +3,7 @@ import java.util.*;
 class Oblig7 {
     public static void main(String[] args) {
         Eresept eresept = new Eresept;
-        // eresept.load()
+        eresept.load("eresept.txt");
         EreseptMenu menu = new EreseptMenu(eresept);
         menu.commandLoop();
     }
