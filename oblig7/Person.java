@@ -12,7 +12,7 @@ public class Person {
     private long fnummer;
     private String adresse;
     private int postnummer;
-    private int loepeNr = 0;
+    public int loepeNr = 0;
     private static int sist_loepeNr = 0;
 
     public Personer(String navn, long fnummer, String adresse, int postnummer) {
