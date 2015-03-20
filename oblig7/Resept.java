@@ -16,13 +16,22 @@ public abstract class Resept {
     public int getNummer() {return nummer;}
     public int getReit() {return reit;}
     public Lege getLege() {
-	return lege;
+        return lege;
     }
     public Legemiddel getLegemiddel() {
-	return legemiddel;
+        return legemiddel;
     }
 
     public Person getPasient() {
-	return pasient;
+        return pasient;
+    }
+    public Boolean hentResept() {
+        if (reit > 0) {
+            reit--;
+            return true;
+        } else {
+            return false;
+        }
     }
 }
+
