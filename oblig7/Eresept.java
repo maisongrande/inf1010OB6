@@ -24,6 +24,7 @@ class Eresept {
                 if (modus == "Personer" && line.length == 5){
                     addPerson(Integer.parseInt(line[0]), line[1], Integer.parseInt(line[2]), line[3], Integer.parseInt(line[4]));
                 } else if (modus == "Legemidler" && line.length == 8) {
+                } else if (modus == "Legemidler" && line.length == 7) {
                 } else if (modus == "Lege" && line.length == 2) {
                 } else if (modus == "Resepter" && line.length == 6) {
                 } else {
