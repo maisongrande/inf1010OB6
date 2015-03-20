@@ -2,7 +2,10 @@ import java.util.*;
 import java.io.*;
 class Eresept {
     Tabell personer = new Tabell(100000); // FIXME
-    
+    EnkelReseptListe resepter = new EnkelReseptListe();
+    SortertEnkelListe leger = new SortertEnkelListe();
+    Tabell legemidler = new Tabell(100000);
+
     public void load(String filnavn) {
         Scanner fil;
         try {
@@ -31,7 +34,8 @@ class Eresept {
     }
 
     public void addPerson(int i, String navn, int pNr, String adresse, int postNummer){
-        
+        //
     }
+    public void addLegemiddel() {}
     //void save(){}
 }
