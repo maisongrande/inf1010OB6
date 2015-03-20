@@ -12,18 +12,21 @@ class Oblig7 {
 
 class EreseptMenu{
     Eresept eresept;
+    Scanner sc = new Scanner(System.in);
     public EreseptMenu(Eresept eresept){
         this.eresept = eresept;
     }
 
     public void commandLoop(){
-        Scanner sc = new Scanner(System.in);
         help();
         System.out.print("oblig# ");
         while(sc.hasNext()) {
             switch (sc.next()){
             case "1":
                 help();
+                break;
+            case "11":
+                hentResept();
                 break;
             default:
                 help();
@@ -44,11 +47,23 @@ class EreseptMenu{
             "8) new doctor",
             "9) new person",
             "10) new prescriptions",
-            "11) retrive drug based on prescription",
+            "11) Hent resept",
             "12) print statistics",
         };
         for (String l : h) {
             System.out.println(l);
+        }
+    }
+    public void hentResept(){
+        System.out.println("Velg resept: ");
+        System.out.print(eresept.printResept());
+        System.out.print("> ");
+        int valg = Integer.parseInt(sc.next());
+        Resept resept = eresept.getResept(valg);
+        if(resept.hentResept()) {
+            System.out.println("Medisin til deg");
+        } else {
+            System.out.println("Ikke mer medisin til deg. :(");
         }
     }
 }

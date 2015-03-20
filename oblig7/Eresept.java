@@ -195,9 +195,13 @@ class Eresept {
             s+=l.avtaleNummer;
             s+="\n";
         }
+        s+=printResept();
 
-        s+="# Resepter (nr, hvit/blå, persNummer, legeNavn, legemiddelNummer, reit)\n";
-        for (Resept r : resepter){
+        return s;
+    }
+    public String printResept(){
+         String s="# Resepter (nr, hvit/blå, persNummer, legeNavn, legemiddelNummer, reit)\n";
+         for (Resept r : resepter){
             s+=r.getNummer();
             s+=", ";
             if (r instanceof BlaResept) {
@@ -215,8 +219,9 @@ class Eresept {
             s+=r.getReit();
             s+="\n";
         }
-        return s;
+         return s;
     }
+    public Resept getResept(int id) {return resepter.get(id);}
     //void save(){}
 }
   
