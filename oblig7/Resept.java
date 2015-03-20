@@ -1,10 +1,10 @@
 public abstract class Resept {
     public int nummer;
-    public Legemiddel legemiddel;
-    public Lege lege;
-    public Person pasient;
-    public int reit;
-    public static int sist_nummer=0;
+    private Legemiddel legemiddel;
+    private Lege lege;
+    private Person pasient;
+    private int reit;
+    private static int sist_nummer=0;
     public Resept(Legemiddel legemiddel, Lege lege, Person pasient, int reit){
         this.legemiddel = legemiddel;
         this.lege = lege;
@@ -15,14 +15,14 @@ public abstract class Resept {
 
     public int getNummer() {return nummer;}
     public int getReit() {return reit;}
-    public String getLege() {
-	return lege.getNavn();
+    public Lege getLege() {
+	return lege;
     }
     public Legemiddel getLegemiddel() {
 	return legemiddel;
     }
 
-    public Long getPersonNummer() {
-	return pasient.getPersonNummer();
+    public Person getPasient() {
+	return pasient;
     }
 }

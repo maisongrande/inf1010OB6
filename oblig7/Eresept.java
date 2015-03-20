@@ -198,7 +198,7 @@ class Eresept {
 
         s+="# Resepter (nr, hvit/blå, persNummer, legeNavn, legemiddelNummer, reit)\n";
         for (Resept r : resepter){
-            s+=r.nummer;
+            s+=r.getNummer();
             s+=", ";
             if (r instanceof BlaResept) {
                 s+="blå";
@@ -206,13 +206,13 @@ class Eresept {
                 s+="hvit";
             }
             s+=", ";
-            s+=r.pasient.loepeNr;
+            s+=r.getPasient().loepeNr;
             s+=", ";
-            s+=r.lege.getNavn();
+            s+=r.getLege().getNavn();
             s+=", ";
-            s+=r.legemiddel.getNummer();
+            s+=r.getLegemiddel().getNummer();
             s+=", ";
-            s+=r.reit;
+            s+=r.getReit();
             s+="\n";
         }
         return s;
