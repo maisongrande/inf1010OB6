@@ -15,7 +15,7 @@ class Eresept {
             return;
         }
         String[] line;
-        String modus;
+        String modus = "tut";
         while (fil.hasNextLine()){
             line = fil.nextLine().split(" |, ");
             if (line[0] == "#") {
@@ -30,7 +30,7 @@ class Eresept {
                 } else if (modus == "Lege" && line.length == 2) {
                 } else if (modus == "Resepter" && line.length == 6) {
                 } else {
-                    System.out.println("Dårlig formulert linje: " + line);
+                    System.out.println("Dårlig formulert linje: " + line[0]);
                 }
             }
         }
@@ -39,12 +39,12 @@ class Eresept {
     public void addPerson(String i, String navn, String pNr, 
                           String adresse, String postNummer) {
         int lpNr = Integer.parseInt(i);
-        Person p = new Person(lpNr, navn, Integer.parseInt(pNr), adresse, Integer.parseInt(postnummer));
+        Person p = new Person(lpNr, navn, Integer.parseInt(pNr), adresse, Integer.parseInt(postNummer));
         personer.add(lpNr, p);
     }
     public void addPerson(String navn, String pNr, 
                           String adresse, String postNummer) {
-        Person p = new Person(navn, Integer.parseInt(pNr), adresse, Integer.parseInt(postnummer));
+        Person p = new Person(navn, Integer.parseInt(pNr), adresse, Integer.parseInt(postNummer));
         personer.add(p.loepeNr, p);
     }
 
@@ -60,16 +60,16 @@ class Eresept {
         } else if (type == "b" && form == "pille" ) {
             legemidler.add(Integer.parseInt(nr), new LegemiddelMiksturB(navn, Integer.parseInt(pris), Integer.parseInt(styrke), Integer.parseInt(mengde), Integer.parseInt(virkestoff)));
         } else {
-            System.out.println("Ukjent legemiddel: " + nr)
+            System.out.println("Ukjent legemiddel: " + nr);
         }
     }
     public void addLegemiddel(String nr,String navn,String form,String type,String pris,String mengde,String virkestoff) {
         if (type == "c" && form == "mikstur" ) {
             legemidler.add(Integer.parseInt(nr), new LegemiddelMiksturC(navn, Integer.parseInt(pris), Integer.parseInt(mengde), Integer.parseInt(virkestoff)));
         } else if (type == "c" && form == "pille" ) {
-            legemidler.add(Integer.parseInt(nr), new LegemiddelPillerrC(navn, Integer.parseInt(pris), Integer.parseInt(mengde), Integer.parseInt(virkestoff)));
+            legemidler.add(Integer.parseInt(nr), new LegemiddelPillerC(navn, Integer.parseInt(pris), Integer.parseInt(mengde), Integer.parseInt(virkestoff)));
         } else {
-            System.out.println("Ukjent legemiddel: " + nr)
+            System.out.println("Ukjent legemiddel: " + nr);
         }
     }
 
