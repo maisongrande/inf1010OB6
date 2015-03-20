@@ -1,13 +1,13 @@
 
 /**
- * Klassen Personer.
+ * Klassen Person.
  * Oppretter personer med attributene:
  * navn, foedselsnummer, adresse, postnummer.
  * Naar et personobjekt opprettes gis det et unikt
  * nummer som starter paa 0.
  */
 
-public class Personer {
+public class Person {
     private String navn;
     private long fnummer;
     private String adresse;

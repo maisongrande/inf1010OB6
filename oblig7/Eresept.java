@@ -34,7 +34,7 @@ class Eresept {
     }
 
     public void addPerson(int i, String navn, int pNr, String adresse, int postNummer){
-        //
+	    Person p = new Person(navn, pNr, adresse, postnummer);
     }
     public void addLegemiddel() {}
     //void save(){}
