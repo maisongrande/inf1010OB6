@@ -12,4 +12,17 @@ public abstract class Resept {
         this.reit = reit;
         nummer = ++sist_nummer;
     }
+
+    public int getNummer() {return nummer;}
+    public int getReit() {return reit;}
+    public String getLege() {
+	return lege.getNavn();
+    }
+    public Legemiddel getLegemiddel() {
+	return legemiddel;
+    }
+
+    public Long getPersonNummer() {
+	return pasient.getPersonNummer();
+    }
 }

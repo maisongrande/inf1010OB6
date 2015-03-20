@@ -24,6 +24,9 @@ public class Lege implements Lik, Comparable {
     public String toString(){
         return navn;
     }
+    public int getAvtalenr() {
+	return avtaleNummer;
+    }
     public Lege(String navn){
         this.navn = navn;
     }

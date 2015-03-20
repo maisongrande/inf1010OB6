@@ -32,4 +32,8 @@ public class Person {
             sist_loepeNr = loepeNr;
         }
     }
+
+    public Long getPersonNummer() {
+	return fnummer;
+    }
 }
