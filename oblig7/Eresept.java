@@ -22,7 +22,10 @@ class Eresept {
                 modus = line[1];
             } else {
                 if (modus == "Personer" && line.length == 5){
-                    addPerson(Integer.parseInt(line[0]), line[1], Integer.parseInt(line[2]), line[3], Integer.parseInt(line[4]));
+                    addPerson(Integer.parseInt(line[0]), 
+				    line[1], 
+				    Integer.parseInt(line[2]), 
+				    line[3], Integer.parseInt(line[4]));
                 } else if (modus == "Legemidler" && line.length == 8) {
                 } else if (modus == "Lege" && line.length == 2) {
                 } else if (modus == "Resepter" && line.length == 6) {
@@ -33,9 +36,15 @@ class Eresept {
         }
     }
 
-    public void addPerson(int i, String navn, int pNr, String adresse, int postNummer){
-	    Person p = new Person(navn, pNr, adresse, postnummer);
+    public void addPerson(int i, String navn, int pNr, 
+		    String adresse, int postNummer) {
+	    Person p = new Person(i, navn, pNr, adresse, postnummer);
+	    personer.add(i, p);
     }
-    public void addLegemiddel() {}
+
+    public void addLegemiddel(nr, navn, form, type, pris, mengde, virkestoff) {
+    	Legemidel lm = new Legemiddel();
+    }
+
     //void save(){}
 }
