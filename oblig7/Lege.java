@@ -1,26 +1,34 @@
-
-public class Leger implements Lik, KommuneAvtale {
+public class Lege implements Lik, Comparable {
     private String navn;
-    private int avtaleNr;
+    public int avtaleNummer;
 
-    Leger(String navn) {
-	this.navn = navn;
+    public Boolean samme(Object lege) {
+        if (lege instanceof Lege) {
+            Lege l = (Lege)lege;
+            if(l.getNavn().equals(navn)){return true;}
+        }
+        return false;
+    };
+
+    public int compareTo(Object lege) {
+        if (lege instanceof Lege) {
+            Lege l = (Lege)lege;
+            return navn.compareToIgnoreCase(l.getNavn());
+        }
+        return -1;
     }
 
-    Leger(String navn, int avtaleNr) {
-	this.navn = navn;
-	this.avtaleNr = avtaleNr;
+    public String getNavn(){
+        return navn;
     }
-
-    public void setAvtaleNr(int avtaleNr) {
-	this.avtaleNr = avtaleNr;
+    public String toString(){
+        return navn;
     }
-    
-    public boolean samme(String navn) {
-	return this.navn == navn?true:false;
+    public Lege(String navn){
+        this.navn = navn;
     }
-
-    public int avtaleNummer(){
-	return avtaleNr;
+    public Lege(String navn, int a){
+        this.navn = navn;
+        this.avtaleNummer = a;
     }
 }
