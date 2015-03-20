@@ -13,12 +13,23 @@ public class Person {
     private String adresse;
     private int postnummer;
     private int loepeNr = 0;
+    private static int sist_loepeNr = 0;
 
     public Personer(String navn, long fnummer, String adresse, int postnummer) {
-	this.navn = navn;
-	this.fnummer = fnummer;
-	this.adresse = adresse;
-	this.postnummer = postnummer;
-	this.loepeNr = ++loepeNr;
+        this.navn = navn;
+        this.fnummer = fnummer;
+        this.adresse = adresse;
+        this.postnummer = postnummer;
+        this.loepeNr = ++sist_loepeNr;
+    }
+    public Personer(int loepeNr, String navn, long fnummer, String adresse, int postnummer) {
+        this.navn = navn;
+        this.fnummer = fnummer;
+        this.adresse = adresse;
+        this.postnummer = postnummer;
+        this.loepeNr = loepeNr;
+        if (loepeNr > sist_loepeNr) {
+            sist_loepeNr = loepeNr;
+        }
     }
 }
