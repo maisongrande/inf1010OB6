@@ -60,25 +60,25 @@ class Eresept {
 
     public void addLegemiddel(String nr,String navn,String form,String
                               type,String pris,String mengde,String virkestoff, String styrke) {
-        if (type == "a" && form == "mikstur" ) {
+        if (type.equals("a") && form.equals("mikstur") ) {
             legemidler.add(Integer.parseInt(nr), new LegemiddelMiksturA(navn,
                                                                         Integer.parseInt(pris),
                                                                         Integer.parseInt(styrke),
                                                                         Integer.parseInt(mengde),
                                                                         Integer.parseInt(virkestoff)));
-        } else if (type == "a" && form == "pille" ) {
+        } else if (type.equals("a") && form.equals("pille") ) {
             legemidler.add(Integer.parseInt(nr), new LegemiddelPillerA(navn,
                                                                        Integer.parseInt(pris),
                                                                        Integer.parseInt(styrke),
                                                                        Integer.parseInt(mengde),
                                                                        Integer.parseInt(virkestoff)));
-        } else if (type == "b" && form == "mikstur" ) {
+        } else if (type.equals("b") && form.equals("mikstur") ) {
             legemidler.add(Integer.parseInt(nr), new LegemiddelMiksturB(navn,
                                                                         Integer.parseInt(pris),
                                                                         Integer.parseInt(styrke),
                                                                         Integer.parseInt(mengde),
                                                                         Integer.parseInt(virkestoff)));
-        } else if (type == "b" && form == "pille" ) {
+        } else if (type.equals("b") && form.equals("pille") ) {
             legemidler.add(Integer.parseInt(nr), new LegemiddelMiksturB(navn,
                                                                         Integer.parseInt(pris),
                                                                         Integer.parseInt(styrke),
@@ -90,12 +90,12 @@ class Eresept {
     }
 
     public void addLegemiddel(String nr,String navn,String form,String type,String pris,String mengde,String virkestoff) {
-        if (type == "c" && form == "mikstur" ) {
+        if (type.equals("c") && form.equals("mikstur") ) {
             legemidler.add(Integer.parseInt(nr), new LegemiddelMiksturC(navn,
                                                                         Integer.parseInt(pris),
                                                                         Integer.parseInt(mengde),
                                                                         Integer.parseInt(virkestoff)));
-        } else if (type == "c" && form == "pille" ) {
+        } else if (type.equals( "c") && form.equals("pille") ) {
             legemidler.add(Integer.parseInt(nr), new LegemiddelPillerC(navn,
                                                                        Integer.parseInt(pris),
                                                                        Integer.parseInt(mengde),
@@ -135,9 +135,9 @@ class Eresept {
             return;
         }
 
-        if (farge == "hvit") {
+        if (farge.equals("hvit")) {
             resepter.add(new HvitResept(nr, legemiddel, lege, person, reit, 0));
-        } else if (farge == "blå") {
+        } else if (farge.equals("blå")) {
             resepter.add(new BlaResept(nr, legemiddel, lege, person, reit));
         } else {
             System.out.println("Ukjent reseptfarge");
