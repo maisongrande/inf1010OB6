@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 class Eresept {
-    Tabell<Person> personer = new Tabell<Person>(100000); // FIXME
+    Tabell<Person> personer = new Tabell<Person>(100000); 
     EnkelReseptListe resepter = new EnkelReseptListe();
     SortertEnkelListe<Lege> leger = new SortertEnkelListe<Lege>();
     Tabell<Legemiddel> legemidler = new Tabell<Legemiddel>(100000);
@@ -48,13 +48,13 @@ class Eresept {
         int lpNr = Integer.parseInt(i);
         Person p = new Person(lpNr, navn,
                               Long.parseLong(pNr), adresse,
-                              Integer.parseInt(postNummer));
+                              postNummer);
         personer.add(lpNr, p);
     }
     public void addPerson(String navn, String pNr, String adresse, String
                           postNummer) {
         Person p = new Person(navn, Long.parseLong(pNr), adresse,
-                              Integer.parseInt(postNummer));
+                              postNummer);
         personer.add(p.loepeNr, p);
     }
 
@@ -144,6 +144,27 @@ class Eresept {
         }
     }
 
+    public String print() {
+        String s="# Personer (nr, navn, fnr, adresse, postnr)\n";
+        for (Person p : personer){
+            s+= String.format("%d, %s, %d, %s, %s\n", p.loepeNr, p.navn, p.fnummer, p.adresse, p.postnummer);
+        }
+
+        s+="# Legemidler (nr, navn, form, type, pris, antall, virkestoff [, styrke])";
+        for (Legemiddel m : legemidler) {
+            s+=m.getNummer();
+            s+=" ";
+            s+=m.getNavn();
+            s+=" ";
+            if (m instanceof LegemiddelMikstur) {
+                s+="mikstur ";
+            } else if (m instanceof LegemiddelPiller) {
+                s+="pille ";
+            }
+            
+        }
+        return s;
+    }
     //void save(){}
 }
   

@@ -64,32 +64,39 @@ public class Tabell<T> implements AbstraktTabell<T>, Iterable<T>  {
      *
      */
     private class TabellIterator implements Iterator<T> {
-	private int pos = 0;
+        private int pos = 0;
 	
-	/**
-	 * Metoden hasNext returnerer true/false bassert paa om
-	 * det er flere elementer i arrayet.
-	 * @return true/false Avhengig om det finnes et neste-elemement.
-	 */
-	public boolean hasNext() {
-	    return pos < array.length;
-	}
+        /**
+         * Metoden hasNext returnerer true/false bassert paa om
+         * det er flere elementer i arrayet.
+         * @return true/false Avhengig om det finnes et neste-elemement.
+         */
+        public boolean hasNext() {
+            int p = pos;
+            while(p++ < array.length-1) {
+                if (array[p] != null) { return true; }
+            }
+            return false;
+        }
 
-	/**
-	 * Metoden next returnerer det neste elementet i array/tabell
-	 * hvis det eksisterer.
-	 * @return objektet i neste posisjon.
-	 */
-	public T next() {
-	    return array[pos++];
-	}
+        /**
+         * Metoden next returnerer det neste elementet i array/tabell
+         * hvis det eksisterer.
+         * @return objektet i neste posisjon.
+         */
+        public T next() {
+            while (pos++ < array.length-1){
+                if (array[pos] != null) { return array[pos]; }
+            }
+            return null;
+        }
 
-	/**
-	 * remove. Ikke implementert
-	 * @throws UnsupportedOperationEception
-	 */
-	public void remove() {
-	    throw new UnsupportedOperationException();	    
-	}
+        /**
+         * remove. Ikke implementert
+         * @throws UnsupportedOperationEception
+         */
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
     }
 }
