@@ -23,10 +23,44 @@ class EreseptMenu{
         while(sc.hasNext()) {
             switch (sc.next()){
             case "1":
+            //"1) hjelp",
                 help();
                 break;
+            case "2":
+            //"2) skriv til fil og avslutt",
+                break;
+            case "3":
+            //"3) print personer",
+                skrivUtPersoner();
+                break;
+            case "4":
+            //"4) print leger",
+                skrivUtLeger();
+                break;
+            case "5":
+            //"5) print legemidler",
+                break;
+            case "6":
+            //"6) print resepter",
+                break;
+            case "7":
+            //"7) opprett nytt legemiddel",
+                break;
+            case "8":
+            // "8) opprett ny lege",
+                break;
+            case "9":
+            // "9) opprett ny person",
+                break;
+            case "10":
+            // "10) opprett ny resept",
+                break;
             case "11":
+            // "11) Hent resept",
                 hentResept();
+                break;
+            case "12":
+            // "12) print statistikk",
                 break;
             default:
                 help();
@@ -38,17 +72,17 @@ class EreseptMenu{
     public void help(){
         String[] h = {
             "1) hjelp",
-            "2) save and quit",
-            "3) print persons",
-            "4) print doctors",
-            "5) print dr)ugs",
-            "6) print pr(e)scriptions",
-            "7) new drug",
-            "8) new doctor",
-            "9) new person",
-            "10) new prescriptions",
+            "2) skriv til fil og avslutt",
+            "3) print personer",
+            "4) print leger",
+            "5) print legemidler",
+            "6) print resepter",
+            "7) opprett nytt legemiddel",
+            "8) opprett ny lege",
+            "9) opprett ny person",
+            "10) opprett ny resept",
             "11) Hent resept",
-            "12) print statistics",
+            "12) print statistikk",
         };
         for (String l : h) {
             System.out.println(l);
@@ -65,5 +99,18 @@ class EreseptMenu{
         } else {
             System.out.println("Ikke mer medisin til deg. :(");
         }
+    }
+
+    public void skrivUtPersoner() {
+        System.out.println("Personer i registeret: ");
+        for (Person p : eresept.personer)
+            System.out.printf("%s\n", p.navn);
+    }
+    
+    public void skrivUtLeger() {
+        System.out.println("Leger i registeret: ");
+        for (Lege l : eresept.leger)
+            System.out.printf("%s\n", l.getNavn());
+        
     }
 }
