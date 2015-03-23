@@ -67,6 +67,8 @@ class EreseptMenu{
             // "12) print statistikk",
                 eresept.printNarkotika();
                 break;
+            case "13":
+                printResept();
             default:
                 help();
                 break;
@@ -88,6 +90,7 @@ class EreseptMenu{
             "10) opprett ny resept",
             "11) Hent resept",
             "12) print statistikk",
+            "13) skriv ut resepter på pasient",
         };
         for (String l : h) {
             System.out.println(l);
@@ -159,6 +162,11 @@ class EreseptMenu{
         String reit = sc.nextLine();
         String nr = Integer.toString(Resept.get_sist_nummer());
         eresept.addResept(nr, farge, pnr, lege, legemiddelnr, reit);
+    }
+    public void printResept(){
+        System.out.print("Personnummer eller nummer på pasient: ");
+        String nr = sc.nextLine();
+        eresept.printResept(Long.parseLong(nr));
     }
     public void skrivUtPersoner() {
         System.out.println("Personer i registeret: ");

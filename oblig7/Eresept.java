@@ -237,5 +237,18 @@ class Eresept {
         }
         System.out.println("Av " +n+ " resepter på narkotiske legemidler er " + o + " skrevet ut til noen i Oslo");
     }
+
+    public void printResept(long nr){
+        for (Resept r : resepter){
+            if (r instanceof BlaResept) {
+                Person p = r.getPasient();
+                if (p.fnummer == nr || p.loepeNr == nr) {
+                    int reit = r.getReit();
+                    String navn = r.getLegemiddel().getNavn();
+                    System.out.println(navn + ": " + reit);
+                }
+            }
+        }
+    }
 }
 
