@@ -49,12 +49,15 @@ class EreseptMenu{
                 break;
             case "8":
             // "8) opprett ny lege",
+                addLege();
                 break;
             case "9":
             // "9) opprett ny person",
+                addPerson();
                 break;
             case "10":
             // "10) opprett ny resept",
+                addResept();
                 break;
             case "11":
             // "11) Hent resept",
@@ -131,7 +134,31 @@ class EreseptMenu{
         String nr = sc.nextLine();
         eresept.addLege(navn,nr);
     }
-
+    public void addPerson(){
+        System.out.print("Navn: ");
+        String navn = sc.nextLine();
+        System.out.print("Personnummer: ");
+        String pnr = sc.nextLine();
+        System.out.print("Adresse: ");
+        String adr = sc.nextLine();
+        System.out.print("Postnummer: ");
+        String postnr = sc.nextLine();
+        eresept.addPerson(navn, pnr, adr, postnr);
+    }
+    public void addResept() {
+        System.out.print("Farge (blå/hvit): ");
+        String farge = sc.nextLine();
+        System.out.print("Pasientens personnummer: ");
+        String pnr = sc.nextLine();
+        System.out.print("Legens navn: ");
+        String lege = sc.nextLine();
+        System.out.print("Legemiddelnummer: ");
+        String legemiddelnr = sc.nextLine();
+        System.out.print("Reit: ");
+        String reit = sc.nextLine();
+        String nr = Integer.toString(Resept.get_last_nummer());
+        eresept.addResept(nr, farge, pnr, lege, legemiddelnr, reit);
+    }
     public void skrivUtPersoner() {
         System.out.println("Personer i registeret: ");
         for (Person p : eresept.personer)

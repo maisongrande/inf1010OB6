@@ -13,6 +13,9 @@ public abstract class Resept {
         nummer = ++sist_nummer;
     }
 
+    public static int get_sist_nummer(){
+        return sist_nummer;
+    }
     public int getNummer() {return nummer;}
     public int getReit() {return reit;}
     public Lege getLege() {
