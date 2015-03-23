@@ -103,7 +103,6 @@ class EreseptMenu{
     }
 
     public void addLegemiddel(){
-        String nr = Integer.toString(Legemiddel.get_last_nummer()); 
         System.out.print("Navn på legemiddel: ");
         String navn = sc.nextLine();
         System.out.print("mikstur eller pille? ");
@@ -116,6 +115,7 @@ class EreseptMenu{
         String mengde = sc.nextLine();
         System.out.print("virkestoff: ");
         String virkestoff = sc.nextLine();
+        String nr = Integer.toString(Legemiddel.get_last_nummer()); 
         if (type.equals("a") || type.equals("b")) {
             System.out.print("styrke: ");
             String styrke = sc.nextLine();
@@ -123,6 +123,13 @@ class EreseptMenu{
         } else {
             eresept.addLegemiddel(nr, navn, form, type, pris,mengde,virkestoff);
         }
+    }
+    public void addLege(){
+        System.out.print("Navn: ");
+        String navn = sc.nextLine();
+        System.out.print("Nummer (0 for ingen): ");
+        String nr = sc.nextLine();
+        eresept.addLege(navn,nr);
     }
 
     public void skrivUtPersoner() {
