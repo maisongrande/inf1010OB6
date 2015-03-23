@@ -38,10 +38,12 @@ class EreseptMenu{
                 skrivUtLeger();
                 break;
             case "5":
-            //"5) print legemidler",
+            //"5) Skrive ut alle personer, alle leger (sortert på navn), aller legemidler og alle resepter.",
+                System.out.println(eresept.print());
                 break;
             case "6":
             //"6) print resepter",
+                printResept();
                 break;
             case "7":
             //"7) opprett nytt legemiddel",
@@ -64,11 +66,13 @@ class EreseptMenu{
                 hentResept();
                 break;
             case "12":
-            // "12) print statistikk",
+            // "12) print narkostatistikk for oslo",
                 eresept.printNarkotika();
                 break;
             case "13":
-                printResept();
+                break;
+            case "14":
+                break;
             default:
                 help();
                 break;
@@ -82,15 +86,16 @@ class EreseptMenu{
             "2) skriv til fil og avslutt",
             "3) print personer",
             "4) print leger",
-            "5) print legemidler",
-            "6) print resepter",
+            "5) Skrive ut alle personer, alle leger (sortert på navn), aller legemidler og alle resepter",
+            "6) print alle blå resepter på en pasient",
             "7) opprett nytt legemiddel",
             "8) opprett ny lege",
             "9) opprett ny person",
             "10) opprett ny resept",
             "11) Hent resept",
-            "12) print statistikk",
-            "13) skriv ut resepter på pasient",
+            "12) print narkostatistikk for oslo",
+            "13) skriv ut statistikk om lege",
+            "14) skriv ut statistikk om misbruk"
         };
         for (String l : h) {
             System.out.println(l);

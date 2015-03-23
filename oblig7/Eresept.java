@@ -238,6 +238,9 @@ class Eresept {
         System.out.println("Av " +n+ " resepter på narkotiske legemidler er " + o + " skrevet ut til noen i Oslo");
     }
 
+    public void printLegeStatistikk(){}
+    public void printMisbruk(){}
+
     public void printResept(long nr){
         for (Resept r : resepter){
             if (r instanceof BlaResept) {
