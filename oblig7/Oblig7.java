@@ -21,7 +21,7 @@ class EreseptMenu{
         help();
         System.out.print("oblig# ");
         while(sc.hasNext()) {
-            switch (sc.next()){
+            switch (sc.nextLine()){
             case "1":
             //"1) hjelp",
                 help();
@@ -45,6 +45,7 @@ class EreseptMenu{
                 break;
             case "7":
             //"7) opprett nytt legemiddel",
+                addLegemiddel();
                 break;
             case "8":
             // "8) opprett ny lege",
@@ -98,6 +99,29 @@ class EreseptMenu{
             System.out.println("Medisin til deg");
         } else {
             System.out.println("Ikke mer medisin til deg. :(");
+        }
+    }
+
+    public void addLegemiddel(){
+        String nr = Integer.toString(Legemiddel.get_last_nummer()); 
+        System.out.print("Navn på legemiddel: ");
+        String navn = sc.nextLine();
+        System.out.print("mikstur eller pille? ");
+        String form = sc.nextLine();
+        System.out.print("Type? (a,b,c): ");
+        String type = sc.nextLine();
+        System.out.print("pris: ");
+        String pris = sc.nextLine();
+        System.out.print("mengde: ");
+        String mengde = sc.nextLine();
+        System.out.print("virkestoff: ");
+        String virkestoff = sc.nextLine();
+        if (type.equals("a") || type.equals("b")) {
+            System.out.print("styrke: ");
+            String styrke = sc.nextLine();
+            eresept.addLegemiddel(nr, navn, form, type, pris,mengde,virkestoff,styrke);
+        } else {
+            eresept.addLegemiddel(nr, navn, form, type, pris,mengde,virkestoff);
         }
     }
 

@@ -85,7 +85,7 @@ class Eresept {
                                                                         Integer.parseInt(mengde),
                                                                         Integer.parseInt(virkestoff)));
         } else {
-            System.out.println("Ukjent legemiddel: " + nr);
+            System.out.println("Ukjent legemiddel 1: " + nr);
         }
     }
 
@@ -101,7 +101,7 @@ class Eresept {
                                                                        Integer.parseInt(mengde),
                                                                        Integer.parseInt(virkestoff)));
         } else {
-            System.out.println("Ukjent legemiddel: " + nr);
+            System.out.println("Ukjent legemiddel 2: " + nr);
         }
     }
     

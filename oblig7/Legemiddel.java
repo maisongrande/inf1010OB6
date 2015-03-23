@@ -21,4 +21,7 @@ public abstract class Legemiddel  {
     public int getPris() {
 	return pris;
     }
+    public static int get_last_nummer(){
+        return last_nummer;
+    }
 }
