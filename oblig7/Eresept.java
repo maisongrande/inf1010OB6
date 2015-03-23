@@ -95,7 +95,7 @@ class Eresept {
                                                                         Integer.parseInt(pris),
                                                                         Integer.parseInt(mengde),
                                                                         Integer.parseInt(virkestoff)));
-        } else if (type.equals( "c") && form.equals("pille") ) {
+        } else if (type.equals("c") && form.equals("pille") ) {
             legemidler.add(Integer.parseInt(nr), new LegemiddelPillerC(navn,
                                                                        Integer.parseInt(pris),
                                                                        Integer.parseInt(mengde),
@@ -222,6 +222,20 @@ class Eresept {
          return s;
     }
     public Resept getResept(int id) {return resepter.get(id);}
-    //void save(){}
+
+    public void printNarkotika() {
+        int n=0;
+        int o=0;
+        for (Resept r : resepter) {
+            Legemiddel l = r.getLegemiddel();
+            if (l instanceof LegemiddelA || l instanceof LegemiddelB) {
+                n++;
+                if (Integer.parseInt(r.getPasient().postnummer) <= 1295){
+                    o++;
+                }
+            }
+        }
+        System.out.println("Av " +n+ " resepter på narkotiske legemidler er " + o + " skrevet ut til noen i Oslo");
+    }
 }
-  
+

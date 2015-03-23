@@ -65,6 +65,7 @@ class EreseptMenu{
                 break;
             case "12":
             // "12) print statistikk",
+                eresept.printNarkotika();
                 break;
             default:
                 help();
@@ -156,7 +157,7 @@ class EreseptMenu{
         String legemiddelnr = sc.nextLine();
         System.out.print("Reit: ");
         String reit = sc.nextLine();
-        String nr = Integer.toString(Resept.get_last_nummer());
+        String nr = Integer.toString(Resept.get_sist_nummer());
         eresept.addResept(nr, farge, pnr, lege, legemiddelnr, reit);
     }
     public void skrivUtPersoner() {
