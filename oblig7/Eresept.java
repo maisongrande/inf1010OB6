@@ -6,6 +6,13 @@ class Eresept {
     SortertEnkelListe<Lege> leger = new SortertEnkelListe<Lege>();
     Tabell<Legemiddel> legemidler = new Tabell<Legemiddel>(100000);
 
+
+    /**
+       Metoden save
+       Skriver all informasjon om leger og respter til fil.
+       @param filnavn Filnavnet hvor data skal lagres.
+       @throws IOException
+     */
     public void save(String filnavn) {
 	try {
 	    FileWriter fil = new FileWriter(new File(filnavn));
@@ -15,6 +22,21 @@ class Eresept {
 	    System.out.println(e);
 	}
     }
+
+
+    /**
+       Metoden load
+       Laster inn fil med data og fordeler disse til riktig type 
+       metode basert pa noekkelord startende med #.
+       Datatyper:
+       - Personer.
+       - Legemidler.
+       - Leger.
+       - Resepter.
+       
+       @param filnavn Navnet paa filen som skal lastes inn.
+       @throws IOException.
+     */
     public void load(String filnavn) {
 	Scanner fil;
 	try {
@@ -55,6 +77,16 @@ class Eresept {
 	}
     }
 
+    /** 
+	Metoden addPerson 
+	legger en ny person til i tabellen over personer
+	@param i Personens lokale id/loepenr.
+	@param navn 
+	@param pNr Personens fodselsnummer.
+	@param adresse
+	@param postnummer
+	@see addPerson
+     */
     public void addPerson(String i, String navn, String pNr, String adresse,
 			  String postNummer) {
 	int lpNr = Integer.parseInt(i);
@@ -63,15 +95,30 @@ class Eresept {
 			      postNummer);
 	personer.add(lpNr, p);
     }
-    public void addPerson(String navn, String pNr, String adresse, String
-			  postNummer) {
+    public void addPerson(String navn, String pNr, String adresse,
+			  String postNummer) {
 	Person p = new Person(navn, pNr, adresse,
 			      postNummer);
 	personer.add(p.loepeNr, p);
     }
 
+
+    /** 
+	Metoden addLegemiddel
+	legger et nytt legemiddel til i tabellen over legemidler
+	@param nr Legemiddelets nummer
+	@param navn 
+	@param form
+	@param type
+	@param pris
+	@param mengde
+	@param virkestoff
+	@param styrke
+	@see addLegemiddel
+     */
     public void addLegemiddel(String nr,String navn,String form,String
-			      type,String pris,String mengde,String virkestoff, String styrke) {
+			      type,String pris,String mengde,
+			      String virkestoff, String styrke) {
 	if (type.equals("a") && form.equals("mikstur") ) {
 	    legemidler.add(Integer.parseInt(nr),
 			   new LegemiddelMiksturA(navn,
@@ -124,6 +171,13 @@ class Eresept {
 	}
     }
 
+    /**
+       Metoden addLege
+       Legger inn lege i lenekelisten over leger.
+       	@param navn Legens navn
+	@param nrStr nummer
+	@see SortertEnkelListe
+     */
     public void addLege(String navn, String nrStr) {
 	int nr = Integer.parseInt(nrStr);
 	if (nr == 0) {
@@ -133,6 +187,17 @@ class Eresept {
 	}
     }
 
+    /**
+       Metoden addResept
+       Legger inn resepter i EnkelReseptListe
+       @param nrStr reseptnummer 
+       @param farge Reseptklasse
+       @param pNrstr personnummeret resepten er knyttet til
+       @param legeNavn Navnet til legen som foreskrev resepten.
+       @param legemiddelNrStr legemiddelnr.
+       @param reit
+       @see EnkelReseptListe
+     */
     public void addResept(String nrStr, String farge, String pNrStr,
 			  String legeNavn, String legemiddelNrStr,
 			  String reitStr){
@@ -165,6 +230,13 @@ class Eresept {
 	}
     }
 
+    /**
+       Metoden print 
+       Skriver ut alle: 
+           Personer i tabellen av personer.
+	   Legemidler i tabellen av legemidler
+	   Leger i listen av leger. 
+     */
     public String print() {
 	String s="# Personer (nr, navn, fnr, adresse, postnr)\n";
 	for (Person p : personer){
@@ -173,7 +245,8 @@ class Eresept {
 			      p.adresse, p.postnummer);
 	}
 
-	s+="# Legemidler (nr, navn, form, type, pris, antall, virkestoff [, styrke])\n";
+	s+="# Legemidler (nr, navn, form, type, pris, antall,"+
+	    " virkestoff [, styrke])\n";
 	for (Legemiddel m : legemidler) {
 	    s+=m.getNummer();
 	    s+=", ";
@@ -224,8 +297,16 @@ class Eresept {
 
 	return s;
     }
+
+    /**
+       Metoden printResept
+       Skriver ut all informasjon om hver enkel resept i 
+       resept-tabellen.
+       @return formatert streng med reseptinformasjon.
+     */
     public String printResept(){
-	 String s="# Resepter (nr, hvit/blå, persNummer, legeNavn, legemiddelNummer, reit)\n";
+	 String s="# Resepter (nr, hvit/blå, persNummer,"+
+	     " legeNavn, legemiddelNummer, reit)\n";
 	 for (Resept r : resepter){
 	    s+=r.getNummer();
 	    s+=", ";
@@ -246,8 +327,23 @@ class Eresept {
 	}
 	 return s;
     }
+
+    /**
+       Metoden getResept
+       Henter ut resepter i eresept-tabellen basert paa id.
+       @param id index i tabell
+       @return Resept resepten
+     */
     public Resept getResept(int id) {return resepter.get(id);}
 
+
+    /**
+       Metoden printNarkotika.
+       Metoden skriver ut antallet resepter av vanedannende eller narkotisk
+       type foreskrevet personer i Oslo.
+       @see Resept
+       @see Legemiddel
+     */
     public void printNarkotika() {
 	int n=0;
 	int o=0;
@@ -264,7 +360,14 @@ class Eresept {
 			   + o + " skrevet ut til noen i Oslo");
     }
 
-
+    /**
+       Metoden skriver ut statistikk om resepter tilhoerende en lege.
+       Bl.a den samlede mengden virkestoff og om reseptens legemiddel er av 
+       pille'- eller miksturtype, samt antall/mengde av legemiddelet.
+       @param navn Legens navn
+       @see Legemiddel
+       @see Resept
+    */
     public void printLegeStatistikk(String navn) {
 	int totMVirkestoff = 0;
 	int totPVirkestoff = 0;
@@ -325,7 +428,19 @@ class Eresept {
 			   +(totMVirkestoff+totPVirkestoff));
     }
 
+    /**
+       Metoden printMisbruk.
+       Angir alle leger som har skrevet ut en eller flere resepter av type A
+       legemiddel til terminal. 
 
+       Etter dette blir personer som har gyldige resepter paa legemidler av
+       typen A skrevet ut og antallet de besitter.
+       
+       @ee LegemiddelA
+       @see Resept
+       @see Lege
+       @see Person
+     */
     public void printMisbruk(){
 	int antallNarko = 0;
 	System.out.println("\nLeger som har skrevet ut resept "+
@@ -366,11 +481,17 @@ class Eresept {
 				  p.navn, antallA, antallA>1?"e":"",
 				  antallA>1?"er":"");
 		antallA = 0;
-
 	    }
 	}
     }
 
+
+    /**
+       Metoden printResept.
+       For en git person skriver ut alle den bla resepter, yngste 
+       foerst.
+       @param nr Det unike nummeret til personen.
+     */
     public void printResept(long nr){
 	for (Resept r : resepter){
 	    if (r instanceof BlaResept) {
