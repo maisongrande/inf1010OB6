@@ -30,7 +30,7 @@ class Eresept {
             input = fil.nextLine();
             if (input.split(" ")[0].equals("#")) {
                 modus = input.split(" ")[1];
-                System.out.println("Modus: " + modus);
+                //System.out.println("Modus: " + modus);
             } else {
                 line = input.split(", ");
                 if (modus.equals("Personer") && line.length == 5){

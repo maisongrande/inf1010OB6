@@ -4,7 +4,6 @@ class Oblig7 {
     public static void main(String[] args) {
         Eresept eresept = new Eresept();
         eresept.load("data.txt");
-        System.out.println(eresept.print());
         EreseptMenu menu = new EreseptMenu(eresept);
         menu.commandLoop();
     }
@@ -69,10 +68,9 @@ class EreseptMenu{
             case "14":
                 break;
             default:
-                help();
                 break;
             }
-            System.out.print("oblig# ");
+            System.out.print("oblig7# ");
         }
     }
     public void help(){

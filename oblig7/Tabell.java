@@ -14,7 +14,7 @@ public class Tabell<T> implements AbstraktTabell<T>, Iterable<T>  {
      * @param i Stoerrelsen paa Array/Tabell.
      */
     Tabell(int i) {
-	array = (T[])new Object[i];
+        array = (T[])new Object[i];
     }
 
     
