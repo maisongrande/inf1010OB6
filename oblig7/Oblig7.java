@@ -63,6 +63,7 @@ class EreseptMenu{
                 eresept.printNarkotika();
                 break;
             case "13":
+		printLegeStatistikk();
                 break;
             case "14":
                 break;
@@ -181,5 +182,12 @@ class EreseptMenu{
         for (Lege l : eresept.leger)
             System.out.printf("%-10s %d\n", l.getNavn(), l.getAvtalenr());
     }
+
+    public void printLegeStatistikk() {
+        System.out.print("Navn paa lege: ");
+        String navn = sc.nextLine();
+        eresept.printLegeStatistikk(navn);
+    }
+
 }
 
