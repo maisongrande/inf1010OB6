@@ -20,7 +20,7 @@ public class Person {
         this.fnummer = fnummer;
         this.adresse = adresse;
         this.postnummer = postnummer;
-        this.loepeNr = ++sist_loepeNr;
+        this.loepeNr = sist_loepeNr++;
     }
     public Person(int loepeNr, String navn, long fnummer, String adresse, String postnummer) {
         this.navn = navn;

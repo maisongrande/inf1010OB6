@@ -6,6 +6,15 @@ class Eresept {
     SortertEnkelListe<Lege> leger = new SortertEnkelListe<Lege>();
     Tabell<Legemiddel> legemidler = new Tabell<Legemiddel>(100000);
 
+    public void save(String filnavn) {
+        try {
+            FileWriter fil = new FileWriter(new File(filnavn));
+            fil.write(print());
+            fil.close();
+        } catch (IOException e ) {
+            System.out.println(e);
+        }
+    }
     public void load(String filnavn) {
         Scanner fil;
         try {
@@ -104,7 +113,7 @@ class Eresept {
             System.out.println("Ukjent legemiddel 2: " + nr);
         }
     }
-    
+
     public void addLege(String navn, String nrStr) {
         int nr = Integer.parseInt(nrStr);
         if (nr == 0) {
@@ -168,6 +177,8 @@ class Eresept {
             } else if (m instanceof LegemiddelC) {
                 s+="c, ";
             }
+            s+=m.getPris();
+            s+=", ";
             if (m instanceof LegemiddelPiller) {
                 s+=((LegemiddelPiller)m).pillerPerEske();
                 s+=", ";

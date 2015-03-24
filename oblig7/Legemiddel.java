@@ -7,7 +7,7 @@ public abstract class Legemiddel  {
     public Legemiddel(String navn, int pris){
         this.navn = navn;
         this.pris = pris;
-        nummer = ++last_nummer;
+        nummer = last_nummer++;
     }
 
     public String getNavn() {

@@ -10,7 +10,7 @@ public abstract class Resept {
         this.lege = lege;
         this.pasient = pasient;
         this.reit = reit;
-        nummer = ++sist_nummer;
+        nummer = sist_nummer++;
     }
 
     public static int get_sist_nummer(){

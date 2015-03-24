@@ -30,6 +30,8 @@ class EreseptMenu{
                 break;
             case "2":
             //"2) skriv til fil og avslutt",
+                eresept.save("data.txt");
+                System.exit(0);
                 break;
             case "3":
                 skrivUtPersoner();
