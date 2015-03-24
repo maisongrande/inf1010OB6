@@ -67,6 +67,7 @@ class EreseptMenu{
 		printLegeStatistikk();
                 break;
             case "14":
+		eresept.printMisbruk();
                 break;
             default:
                 break;
@@ -172,7 +173,7 @@ class EreseptMenu{
         System.out.println("Personer i registeret:");
 	System.out.printf("%-30s %s\n", "[Navn:]","[Personnummer:]");
         for (Person p : eresept.personer)
-            System.out.printf("%-30s %d\n", p.navn,
+            System.out.printf("%-30s %s\n", p.navn,
 			       p.getPersonNummer());
     }
     
