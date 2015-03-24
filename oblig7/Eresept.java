@@ -56,13 +56,13 @@ class Eresept {
                           String postNummer) {
         int lpNr = Integer.parseInt(i);
         Person p = new Person(lpNr, navn,
-                              Long.parseLong(pNr), adresse,
+                              pNr, adresse,
                               postNummer);
         personer.add(lpNr, p);
     }
     public void addPerson(String navn, String pNr, String adresse, String
                           postNummer) {
-        Person p = new Person(navn, Long.parseLong(pNr), adresse,
+        Person p = new Person(navn, pNr, adresse,
                               postNummer);
         personer.add(p.loepeNr, p);
     }
@@ -88,7 +88,7 @@ class Eresept {
                                                                         Integer.parseInt(mengde),
                                                                         Integer.parseInt(virkestoff)));
         } else if (type.equals("b") && form.equals("pille") ) {
-            legemidler.add(Integer.parseInt(nr), new LegemiddelMiksturB(navn,
+            legemidler.add(Integer.parseInt(nr), new LegemiddelPillerB(navn,
                                                                         Integer.parseInt(pris),
                                                                         Integer.parseInt(styrke),
                                                                         Integer.parseInt(mengde),
@@ -156,7 +156,7 @@ class Eresept {
     public String print() {
         String s="# Personer (nr, navn, fnr, adresse, postnr)\n";
         for (Person p : personer){
-            s+= String.format("%d, %s, %d, %s, %s\n", p.loepeNr, p.navn, p.fnummer, p.adresse, p.postnummer);
+            s+= String.format("%d, %s, %s, %s, %s\n", p.loepeNr, p.navn, p.fnummer, p.adresse, p.postnummer);
         }
 
         s+="# Legemidler (nr, navn, form, type, pris, antall, virkestoff [, styrke])\n";
@@ -256,7 +256,7 @@ class Eresept {
         for (Resept r : resepter){
             if (r instanceof BlaResept) {
                 Person p = r.getPasient();
-                if (p.fnummer == nr || p.loepeNr == nr) {
+                if (p.fnummer.equals(nr) || p.loepeNr == nr) {
                     int reit = r.getReit();
                     String navn = r.getLegemiddel().getNavn();
                     System.out.println(navn + ": " + reit);
