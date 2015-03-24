@@ -1,4 +1,4 @@
-public class Lege implements Lik, Comparable {
+public class Lege implements Lik, Comparable<Lege> {
     private String navn;
     public int avtaleNummer = 0;
 
@@ -10,7 +10,7 @@ public class Lege implements Lik, Comparable {
         return false;
     };
 
-    public int compareTo(Object lege) {
+    public int compareTo(Lege lege) {
         if (lege instanceof Lege) {
             Lege l = (Lege)lege;
             return navn.compareToIgnoreCase(l.getNavn());
@@ -25,7 +25,7 @@ public class Lege implements Lik, Comparable {
         return navn;
     }
     public int getAvtalenr() {
-	return avtaleNummer;
+        return avtaleNummer;
     }
     public Lege(String navn){
         this.navn = navn;

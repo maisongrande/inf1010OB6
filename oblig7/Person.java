@@ -9,20 +9,20 @@
 
 public class Person {
     public String navn;
-    public long fnummer;
+    public String fnummer;
     public String adresse;
     public String postnummer;
     public int loepeNr = 0;
     private static int sist_loepeNr = 0;
 
-    public Person(String navn, long fnummer, String adresse, String postnummer) {
+    public Person(String navn, String fnummer, String adresse, String postnummer) {
         this.navn = navn;
         this.fnummer = fnummer;
         this.adresse = adresse;
         this.postnummer = postnummer;
-        this.loepeNr = ++sist_loepeNr;
+        this.loepeNr = sist_loepeNr++;
     }
-    public Person(int loepeNr, String navn, long fnummer, String adresse, String postnummer) {
+    public Person(int loepeNr, String navn, String fnummer, String adresse, String postnummer) {
         this.navn = navn;
         this.fnummer = fnummer;
         this.adresse = adresse;
@@ -33,7 +33,7 @@ public class Person {
         }
     }
 
-    public Long getPersonNummer() {
+    public String getPersonNummer() {
 	return fnummer;
     }
 }

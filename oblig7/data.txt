@@ -10,22 +10,19 @@
 8, Arne Seberg, 09036842342, Akebakken 7, 3522
 9, Anna Rask Seberg, 01049364352, Akebakken 7, 3522
 10, Inna Tharaldsrud, 14085535087, Jordstjerneveien 17, 1283
-
-# Legemidler (nr, navn, form, type, pris, antall/mengde, virkestoff [, styrke])
+# Legemidler (nr, navn, form, type, pris, antall, virkestoff [, styrke])
 0, Predizol, mikstur, a, 450, 50, 75, 8
 1, Paralgin, pille, b, 125, 4, 100, 5
 2, Peptidin, pille, a, 250, 10, 100, 10
 3, Cetrizin, pille, c, 390, 100, 10
 4, Lidokain, mikstur, b, 150, 100, 100, 2
 5, Pankuron, mikstur, c, 567, 50, 100
-
 # Leger (navn, avtalenr / 0 hvis ingen avtale)
 Dr. Cox, 1001
 Dr. Dre, 0
 Dr. Hus, 63634
 Dr. Oz, 342
 Dr. Phil, 0
-
 # Resepter (nr, hvit/blå, persNummer, legeNavn, legemiddelNummer, reit)
 0, blå, 4, Dr. Oz, 2, 2
 1, blå, 0, Dr. Phil, 1, 3
@@ -46,5 +43,3 @@ Dr. Phil, 0
 16, hvit, 0, Dr. Phil, 0, 1
 17, blå, 9, Dr. Phil, 4, 0
 18, blå, 10, Dr. Oz, 4, 5
-
-# Slutt
