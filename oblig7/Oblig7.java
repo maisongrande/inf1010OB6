@@ -22,19 +22,19 @@ class EreseptMenu{
         System.out.print("oblig# ");
         while(sc.hasNext()) {
             switch (sc.nextLine()){
+	    case "0":
+		System.exit(0);
+		break;
             case "1":
-            //"1) hjelp",
                 help();
                 break;
             case "2":
             //"2) skriv til fil og avslutt",
                 break;
             case "3":
-            //"3) print personer",
                 skrivUtPersoner();
                 break;
             case "4":
-            //"4) print leger",
                 skrivUtLeger();
                 break;
             case "5":
@@ -42,31 +42,24 @@ class EreseptMenu{
                 System.out.println(eresept.print());
                 break;
             case "6":
-            //"6) print resepter",
                 printResept();
                 break;
             case "7":
-            //"7) opprett nytt legemiddel",
                 addLegemiddel();
                 break;
             case "8":
-            // "8) opprett ny lege",
                 addLege();
                 break;
             case "9":
-            // "9) opprett ny person",
                 addPerson();
                 break;
             case "10":
-            // "10) opprett ny resept",
                 addResept();
                 break;
             case "11":
-            // "11) Hent resept",
                 hentResept();
                 break;
             case "12":
-            // "12) print narkostatistikk for oslo",
                 eresept.printNarkotika();
                 break;
             case "13":
@@ -82,6 +75,7 @@ class EreseptMenu{
     }
     public void help(){
         String[] h = {
+	    "0) avslutt",
             "1) hjelp",
             "2) skriv til fil og avslutt",
             "3) print personer",
@@ -174,15 +168,18 @@ class EreseptMenu{
         eresept.printResept(Long.parseLong(nr));
     }
     public void skrivUtPersoner() {
-        System.out.println("Personer i registeret: ");
+        System.out.println("Personer i registeret:");
+	System.out.printf("%-30s %s\n", "[Navn:]","[Personnummer:]");
         for (Person p : eresept.personer)
-            System.out.printf("%s\n", p.navn);
+            System.out.printf("%-30s %d\n", p.navn,
+			       p.getPersonNummer());
     }
     
     public void skrivUtLeger() {
         System.out.println("Leger i registeret: ");
+	System.out.printf("%-10s %s\n", "[Navn]", "[Avtalenr.:]");
         for (Lege l : eresept.leger)
-            System.out.printf("%s\n", l.getNavn());
-        
+            System.out.printf("%-10s %d\n", l.getNavn(), l.getAvtalenr());
     }
 }
+
