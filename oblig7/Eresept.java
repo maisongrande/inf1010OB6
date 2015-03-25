@@ -96,10 +96,10 @@ class Eresept {
 	personer.add(lpNr, p);
     }
     public void addPerson(String navn, String pNr, String adresse,
-			  String postNummer) {
-	Person p = new Person(navn, pNr, adresse,
-			      postNummer);
-	personer.add(p.loepeNr, p);
+                          String postNummer) {
+        Person p = new Person(navn, pNr, adresse,
+                              postNummer);
+        personer.add(p.loepeNr, p);
     }
 
 
@@ -435,8 +435,14 @@ class Eresept {
 
        Etter dette blir personer som har gyldige resepter paa legemidler av
        typen A skrevet ut og antallet de besitter.
-       
-       @ee LegemiddelA
+
+       Kommentar:
+       Så lenge datasettet passer i minnet, går denne typen spørring fort
+       nok. Hadde vi hatt et større datasett og gjort spørringen hadde vært
+       utført veldig ofte så kunne vi tatt i bruke caching-strategier, en egen
+       teller for narkotiske legemiddler, ev. en ny event-basert tilnærming.
+
+       @see LegemiddelA
        @see Resept
        @see Lege
        @see Person

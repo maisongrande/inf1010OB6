@@ -10,6 +10,8 @@
 8, Arne Seberg, 09036842342, Akebakken 7, 3522
 9, Anna Rask Seberg, 01049364352, Akebakken 7, 3522
 10, Inna Tharaldsrud, 14085535087, Jordstjerneveien 17, 1283
+11, hei, 213, 123, 123
+12, Hei, 0123, 123, 123
 # Legemidler (nr, navn, form, type, pris, antall, virkestoff [, styrke])
 0, Predizol, mikstur, a, 450, 50, 75, 8
 1, Paralgin, pille, b, 125, 4, 100, 5
